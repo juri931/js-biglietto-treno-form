@@ -1,40 +1,37 @@
-// 1. Prompt KM
-const km = prompt ("Quanti KM devi percorrere?");
+document.getElementById('myForm').addEventListener('submit', function (event) {
+  event.preventDefault();
 
-console.log ('I chilometri del viaggio sono: ' + km);
+  const userName = document.getElementById('inputName');
+  const distanceKm = document.getElementById('inputKm');
+  const ageSelect = document.getElementById('formSelect');
 
-// 2. Prompt età
-const age = prompt ("Quanti anni hai?");
+  console.log(`Name: ${userName.value}`);
+  console.log(`Distance: ${distanceKm.value} KM`);
+  console.log(`Age: ${ageSelect.value}`);
 
-console.log ("L'età dell'utente è di: " + age + " anni."); 
+  document.getElementById('userName').textContent = userName.value;
+  document.getElementById('distance').textContent = distanceKm.value;
+  document.getElementById('age').textContent = ageSelect.value;
 
-// 3. Dichiarazione prezzo base al KM
-const basePrice = 0.21;
+  const basePricePerKm = 0.21;
+  const totalDistance = parseFloat(distanceKm.value);
+  let total = totalDistance * basePricePerKm;
 
-// 4. Calcolo totale
-let total = km * basePrice;
+  document.getElementById('total').textContent = `The cost of the ride will be: €${total.toFixed(2)}`;
 
-document.getElementById("total").innerHTML="Il costo della corsa sarà di: €"+((total).toFixed(2));
+  let discount = 0;
 
-console.log("Il costo della corsa sarà di: €"+total+".");
+  if (ageSelect.value < 18) {
+    discount = total * 0.20;
+    document.getElementById('discount').textContent = `Your 20% discount is: €${discount.toFixed(2)}`;
+  } else if (ageSelect.value > 65) {
+    discount = total * 0.40;
+    document.getElementById('discount').textContent = `Your 40% discount is: €${discount.toFixed(2)}`;
+  } else {
+    document.getElementById('discount').textContent = "You are not eligible for any discount";
+  }
 
-// 5. Sconto minorenni 20%
-let discount20 = total * 0.20;
+  total -= discount;
 
-// 6. Sconto over 65 anni 40%
-let discount40 = total * 0.40;
-
-// Calcolo sconto
-if (age<18){
-  total = (total - discount20);
-  document.getElementById('discount').innerHTML = "Il tuo sconto del 20% è di: €" + ((discount20).toFixed(2));
-}else if (age > 65){
-    total = ((total - discount40).toFixed(2));
-    document.getElementById('discount').innerHTML = "Il tuo sconto del 40% è di: €" + ((discount40).toFixed(2));
-}else
-  document.getElementById('discount').innerHTML = "Non hai diritto a nessuno sconto";
-
-// 7. Stampa output
-console.log("Il totale della corsa è di: €" + (total).toFixed(2));
-
-document.getElementById('totalFinal').innerHTML = "Il totale del biglietto è di: €" + (total).toFixed(2);
+  document.getElementById('totalFinal').textContent = `The total cost of the ticket is: €${total.toFixed(2)}`;
+});
