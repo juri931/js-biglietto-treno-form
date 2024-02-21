@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha38
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
   <title>Prezzo del biglietto (Form)</title>
@@ -16,24 +15,35 @@
   <h1 style="text-decoration: underline;">Calcola il prezzo del tuo biglietto</h1>
 
   <!-- Form -->
-  <form id="myForm">
+  <form id="myForm" class="d-flex justify-content-around ">
     
+    <div>
       <label for="inputName">Nome e Cognome</label>
+      <br>
       <input type="text" id="inputName" name="inputName"></input>
-    
+    </div>
+
+    <div>
       <label for="inputKm">Km da percorrere</label>
+      <br>
       <input type="number" id="inputKm" name="inputKm"></input>
-    
+    </div>
+
+    <div>
       <label for="formSelect">Fascia d'età</label>
+      <br>
       <select id="formSelect" name="formSelect">
         <option selected>Scegli</option>
-        <option value="Meno di 18">Meno di 18 anni</option>
-        <option value="Tra 18 e 64">Tra i 18 e i 64 anni</option>
-        <option value="65 o più">65 o più anni</option>
+        <option value="minor">Meno di 18 anni</option>
+        <option value="medium">Tra i 18 e i 64 anni</option>
+        <option value="major">65 o più anni</option>
       </select>
-
-    <button type="submit">Genera</button>
-    <button type="reset">Annulla</button>
+    </div>
+    
+    <div class="">
+      <button type="submit">Genera</button>
+      <button type="reset">Annulla</button>
+    </div>
 
   </form>
 
