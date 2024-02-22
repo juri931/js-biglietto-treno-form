@@ -1,36 +1,35 @@
-document.getElementById('myForm').addEventListener('submit', function (event) {
-  event.preventDefault();
 
-  const userName = document.getElementById('inputName');
-  const distanceKm = document.getElementById('inputKm');
-  const ageSelect = document.getElementById('ageSelect');
+const btnGenera = document.getElementById('genera');
+const btnReset = document.getElementById('reset');
 
-  console.log(`Nome: ${userName.value}`);
-  console.log(`Distanza: ${distanceKm.value} KM`);
-  console.log(`Età: ${ageSelect.value}`);
 
-  userName.textContent = userName.value;
-  distanceKm.textContent = distanceKm.value;
-  ageSelect.textContent = ageSelect.value;
-
-  const basePricePerKm = 0.21;
-  const totalDistance = distanceKm.value;
-  let total = totalDistance * basePricePerKm;
-
-  document.getElementById('total').textContent = `Costo della tratta: €${total.toFixed(2)}`;
-
+btnGenera.addEventListener('click', function(){
+  const nome = document.getElementById('name').value;
+  const km = parseInt(document.getElementById('km').value);
+  const eta = document.getElementById('fascia-eta').value;
+  
+  const basePrice = 0.21;
+  let total = basePrice * km;
+  let discount = 0;
   let discount20 = total * 0.20;
   let discount40 = total * 0.40;
+  let prezzoFinale = 0;
 
-  if (ageSelect.value = "1") {
-    total = (total - discount20);
-    document.getElementById('discount').textContent = "Il tuo sconto del 20% è di: €" + ((discount20).toFixed(2));
-  } else if (ageSelect.value = "3") {
-    total = (total - discount40);
-    document.getElementById('discount40').textContent = "Il tuo sconto del 40% è di: €" + ((discount40).toFixed(2));
-  } else {
-    document.getElementById('discount').textContent = "Non hai diritto a nessuno sconto";
+  if(eta === 'minorenne'){
+    discount = discount20;
+    prezzoFinale = total - discount20;
+  }else if(eta === 'over65'){
+    discount = discount40;
+    prezzoFinale = total - discount40;
+  }else{
+    prezzoFinale = total;
   }
 
-  document.getElementById('totalFinal').textContent = "Il prezzo totale è di: €" + ((total).toFixed(2));
-});
+  console.log(nome, km, eta, total.toFixed(2), discount.toFixed(2), prezzoFinale.toFixed(2));
+})
+
+btnReset.addEventListener('click', function(){
+  document.getElementById('name').value = '';
+  document.getElementById('km').value = 0;
+  document.getElementById("fascia-eta").value = "scegli";
+})

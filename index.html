@@ -14,43 +14,23 @@
   
   <h1 style="text-decoration: underline;">Calcola il prezzo del tuo biglietto</h1>
 
-  <!-- Form -->
-  <form id="myForm" class="d-flex justify-content-around ">
-    
-    <div>
-      <label for="inputName">Nome e Cognome</label>
-      <br>
-      <input type="text" id="inputName" name="inputName"></input>
-    </div>
+  <h2 id="output"></h2>
 
-    <div>
-      <label for="inputKm">Km da percorrere</label>
-      <br>
-      <input type="number" id="inputKm" name="inputKm"></input>
-    </div>
+  <input type="text" id="name">
+  
+  <input type="text" id="km">
+  
+  <select name="fascia-eta" id="fascia-eta">
+    <option value="scegli">Scegli fascia d'età</option>
+    <option value="minorenne">minorenne</option>
+    <option value="maggiorenne">maggiorenne</option>
+    <option value="over65">over65</option>
+  </select>
+  
+  <button id="genera">Genera</button>
+  
+  <button id="reset">Reset</button>
 
-    <div>
-      <label for="ageSelect">Fascia d'età</label>
-      <br>
-      <select id="ageSelect" name="ageSelect">
-        <option selected>Scegli</option>
-        <option value="1">Meno di 18 anni</option>
-        <option value="2">Tra i 18 e i 64 anni</option>
-        <option value="3">65 o più anni</option>
-      </select>
-    </div>
-    
-    <div class="">
-      <button type="submit">Genera</button>
-      <button type="reset">Annulla</button>
-    </div>
-
-  </form>
-
-  <h3 id="total"></h3>
-  <h3 id="discount"></h3>
-  <h3 id="noDiscount"></h3>
-  <h2 id="totalFinal"></h2>
 
   <script src="js/script.js"></script>
 </body>
