@@ -18,14 +18,22 @@ btnGenera.addEventListener('click', function(){
   if(eta === 'minorenne'){
     discount = discount20;
     prezzoFinale = total - discount20;
+    document.getElementById('prezzo').innerHTML = `Il prezzo del biglietto è di: €${total.toFixed(2)}`;
+    document.getElementById('discount').innerHTML = `lo sconto del 20% è di: €${discount20.toFixed(2)}`;
+    document.getElementById('prezzoFinale').innerHTML = `Il totale del biglietto è di: €${prezzoFinale.toFixed(2)}`;
   }else if(eta === 'over65'){
     discount = discount40;
     prezzoFinale = total - discount40;
+    document.getElementById('prezzo').innerHTML = `Il prezzo del biglietto è di: €${total.toFixed(2)}`;
+    document.getElementById('discount').innerHTML = `lo sconto del 40% è di: €${discount40.toFixed(2)}`;
+    document.getElementById('prezzoFinale').innerHTML = `Il totale del biglietto è di: €${prezzoFinale.toFixed(2)}`;
   }else{
     prezzoFinale = total;
+    document.getElementById('discount').innerHTML = `Non hai diritto a nessuno sconto`;
+    document.getElementById('prezzoFinale').innerHTML = `Il totale del biglietto è di: €${prezzoFinale.toFixed(2)}`;
   }
 
-  console.log(nome, km, eta, total.toFixed(2), discount.toFixed(2), prezzoFinale.toFixed(2));
+  console.log(nome, km + ('km'), eta, total.toFixed(2), discount.toFixed(2), prezzoFinale.toFixed(2));
 })
 
 btnReset.addEventListener('click', function(){
