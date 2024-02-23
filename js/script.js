@@ -1,9 +1,10 @@
 
 const btnGenera = document.getElementById('genera');
 const btnReset = document.getElementById('reset');
-
+const biglietto = document.getElementsByClassName('biglietto');
 
 btnGenera.addEventListener('click', function(){
+  document.getElementById('biglietto').innerHTML = "Il tuo biglietto:";
   const nome = document.getElementById('name').value;
   const km = parseInt(document.getElementById('km').value);
   const eta = document.getElementById('fascia-eta').value;
@@ -37,7 +38,12 @@ btnGenera.addEventListener('click', function(){
 })
 
 btnReset.addEventListener('click', function(){
+  document.getElementById('biglietto').innerHTML = "";
+  document.getElementById('total').innerHTML = "";
+  document.getElementById('discount').innerHTML = "";
+  document.getElementById('prezzo').innerHTML = "";
+  document.getElementById('prezzoFinale').innerHTML = "";
   document.getElementById('name').value = '';
-  document.getElementById('km').value = 0;
+  document.getElementById('km').value = "";
   document.getElementById("fascia-eta").value = "scegli";
 })

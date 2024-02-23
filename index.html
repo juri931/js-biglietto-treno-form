@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
   
   <!-- Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,30 +13,33 @@
 
 <body style="text-align: center; font-family: Arial, Helvetica, sans-serif;">
   
-  <h1 style="text-decoration: underline;">Calcola il prezzo del tuo biglietto</h1>
+  <div class="container top">
+    <h1 style="text-decoration: underline;">Calcola il  prezzo del tuo biglietto</h1>
 
-  
-  <input type="text" id="name">
-  
-  <input type="text" id="km">
-  
-  <select name="fascia-eta" id="fascia-eta">
-    <option value="scegli">Scegli fascia d'età</option>
-    <option value="minorenne">minorenne</option>
-    <option value="maggiorenne">maggiorenne</option>
-    <option value="over65">over65</option>
-  </select>
-  
-  <button id="genera">Genera</button>
-  
-  <button id="reset">Reset</button>
-
-  <div class="outputContainer ">
     
-    <h3 class="my-4">Il tuo biglietto</h3>
+    <input type="text" id="name">
+    
+    <input type="text" id="km">
+    
+    <select name="fascia-eta" id="fascia-eta">
+      <option value="scegli">Scegli fascia d'età</option>
+      <option value="minorenne">minorenne</option>
+      <option value="maggiorenne">maggiorenne</option>
+      <option value="over65">over65</option>
+    </select>
+
+    <button id="genera">Genera</button>
+
+    <button id="reset">Reset</button>
+  </div>
+
+  <div class="container bottom">
+    
+    <h3 class="my-4" id="biglietto">Il tuo biglietto:</h3>
     
     <div id="output" class="my-3">
-    
+
+      <div id="total"></div>
       <div id="prezzo"></div>
       <div id="discount"></div>
       <div id="prezzoFinale"></div>

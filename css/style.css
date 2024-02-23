@@ -1,0 +1,10 @@
+body{
+  background-color: darkred!important;
+}
+
+.container{
+  background-color: white;
+  padding: 30px;
+  margin: 20px auto;
+  border-radius: 30px;
+}
